@@ -2,4 +2,4 @@
 lib
 .classpath
 .project
-*/target/*
+target
