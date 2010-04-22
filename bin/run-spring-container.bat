@@ -5,8 +5,9 @@
 @rem and we needed the path to add to Java's classpath.
  
 set APP_HOME=%~dp0..
+set HORNETQ_DATA=%APP_HOME%\target\data
 set FILE_DIR=%1
 set FILE=%2
 set CP=%FILE_DIR%;%APP_HOME%\config\server;%APP_HOME%\lib\*;%APP_HOME%\target\dependency\*;%APP_HOME%\target\classes;
 
-java %JAVA_OPTS% -Dmqserver.home=%APP_HOME% -cp %CP% com.sitechasia.mq.bootstrap.SpringContainer "%FILE_DIR%\%FILE%"
+java %JAVA_OPTS% -Dhornetq.data.dir=%HORNETQ_DATA% -cp %CP% com.sitechasia.mq.bootstrap.SpringContainer "%FILE_DIR%\%FILE%"

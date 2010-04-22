@@ -43,3 +43,4 @@ C:\mq-test> bin\run-spring-container.bat config\client jmsTemplateExample.xml
 
 
 C:\mq-test> bin\run-spring-container.bat config\client jmsQueueSender.xml
+C:\mq-test> bin\run-spring-container.bat config\client jmsQueueReceiver.xml

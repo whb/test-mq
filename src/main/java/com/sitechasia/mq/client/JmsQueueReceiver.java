@@ -6,15 +6,15 @@ import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
 import javax.jms.JMSException;
-import javax.jms.MessageProducer;
+import javax.jms.MessageConsumer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class JmsQueueSender {
-	private static Log log = LogFactory.getLog(JmsQueueSender.class);
+public class JmsQueueReceiver {
+	private static Log log = LogFactory.getLog(JmsQueueReceiver.class);
 
 	private ConnectionFactory connectionFactory;
 	private Destination destination;
@@ -41,21 +41,20 @@ public class JmsQueueSender {
 			log.info("Got a destination : " + destination.getClass());
 			Session session = connection.createSession(false,
 					Session.AUTO_ACKNOWLEDGE);
-			MessageProducer producer = session.createProducer(destination);
+			MessageConsumer receiver = session.createConsumer(destination);
 
 			connection.start();
 			Date begin = new Date();
 			for (int i = 0; i < count; i++) {
-				TextMessage msg = session.createTextMessage("Message" + i);
-				// log.trace("Sending msg: " + msg);
-				producer.send(msg);
+				TextMessage message = (TextMessage)receiver.receive();
+				log.trace("Receiving msg: " + message.getText());
 			}
 			Date end = new Date();
 
 			long seconds = (end.getTime() - begin.getTime()) / 1000;
-			long countPersecond = count / seconds;
+			long countPersecond = count / (end.getTime() - begin.getTime()) * 1000;
 			log.info("====================================");
-			log.info("Sent " + count + " messages in : " + seconds
+			log.info("Receiver " + count + " messages in : " + seconds
 					+ " seconds");
 			log.info("messages/sec : " + countPersecond);
 			log.info("====================================");
