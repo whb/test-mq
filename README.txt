@@ -40,3 +40,6 @@ C:\mq-test> bin\run-spring-container.bat config\client jndiConnectionExample.xml
 
 # Another example:
 C:\mq-test> bin\run-spring-container.bat config\client jmsTemplateExample.xml
+
+
+C:\mq-test> bin\run-spring-container.bat config\client jmsQueueSender.xml

@@ -6,8 +6,7 @@
 	
 	<context:property-placeholder location="classpath:spring.properties" />
 	
-	<bean name ="namingServerImpl" class="org.jnp.server.NamingBeanImpl" init-method="start" destroy-method="stop">
-	</bean>
+	<bean name ="namingServerImpl" class="org.jnp.server.NamingBeanImpl" init-method="start" destroy-method="stop" />
 		
 	<!-- JNDI server. Disable this if you don't want JNDI -->
 	<bean name="namingServer" class="org.jnp.server.Main" init-method="start" destroy-method="stop">
@@ -19,16 +18,13 @@
 	</bean>
 	
 	<!-- MBean server -->
-	<bean name="mbeanServer" class="java.lang.management.ManagementFactory" factory-method="getPlatformMBeanServer">
-	</bean>
+	<bean name="mbeanServer" class="java.lang.management.ManagementFactory" factory-method="getPlatformMBeanServer" />
 	
 	<!-- The core configuration -->
-	<bean name="fileConfiguration" class="org.hornetq.core.config.impl.FileConfiguration" init-method="start" destroy-method="stop">
-	</bean>
+	<bean name="fileConfiguration" class="org.hornetq.core.config.impl.FileConfiguration" init-method="start" destroy-method="stop" />
    
 	<!-- The security manager -->
-	<bean name="hornetQSecurityManagerImpl" class="org.hornetq.spi.core.security.HornetQSecurityManagerImpl">
-	</bean>
+	<bean name="hornetQSecurityManagerImpl" class="org.hornetq.spi.core.security.HornetQSecurityManagerImpl" />
 	
 	<!-- The core server -->
 	<bean name="hornetQServerImpl" class="org.hornetq.core.server.impl.HornetQServerImpl">
