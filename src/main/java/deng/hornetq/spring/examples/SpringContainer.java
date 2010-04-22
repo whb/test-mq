@@ -4,10 +4,10 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class SpringContainer {
 	public static void main(String[] args) {
-		SpringContainer main = new SpringContainer();
-		main.profileName = args[0];
-		main.waitForShutdown = Boolean.parseBoolean(System.getProperty("waitForShutdown", "true"));
-		main.run();
+		SpringContainer container = new SpringContainer();
+		container.profileName = args[0];
+		container.waitForShutdown = Boolean.parseBoolean(System.getProperty("waitForShutdown", "false"));
+		container.run();
 	}
 	
 	private String profileName;

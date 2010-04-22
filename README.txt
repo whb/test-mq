@@ -23,6 +23,7 @@ How to run the HornetQ Server
 C:\hornetq-spring-examples> mvn dependency:copy-dependencies
 
 # Now you may start the server
+C:\hornetq-spring-examples> set JAVA_OPTS=-DwaitForShutdown=true
 C:\hornetq-spring-examples> bin\run-spring-container.bat config\server spring.xml
 
 
@@ -34,9 +35,8 @@ How to run the client examples
 C:\hornetq-spring-examples> mvn dependency:copy-dependencies
 
 # Now you may start any example like this:
-C:\hornetq-spring-examples> set JAVA_OPTS=-DwaitForShutdown=false
+
 C:\hornetq-spring-examples> bin\run-spring-container.bat config\client jndiConnectionExample.xml
 
 # Another example:
-C:\hornetq-spring-examples> set JAVA_OPTS=-DwaitForShutdown=false
 C:\hornetq-spring-examples> bin\run-spring-container.bat config\client jmsTemplateExample.xml
