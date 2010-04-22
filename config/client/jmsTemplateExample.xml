@@ -21,7 +21,7 @@
 		<property name="connectionFactory" ref="connectionFactory"></property>
 	</bean>
 		   
-	<bean name="jmsTemplateExample" class="deng.hornetq.spring.examples.client.JmsTemplateExample" init-method="start" destroy-method="stop">
+	<bean name="jmsTemplateExample" class="com.sitechasia.mq.client.JmsTemplateExample" init-method="start" destroy-method="stop">
 		<property name="jmsTemplate" ref="jmsTemplate"></property>
 	</bean>
 		   

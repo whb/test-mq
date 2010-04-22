@@ -1,4 +1,4 @@
-package deng.hornetq.spring.examples;
+package com.sitechasia.mq.bootstrap;
 
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 

@@ -9,4 +9,4 @@ set FILE_DIR=%1
 set FILE=%2
 set CP=%FILE_DIR%;%APP_HOME%\config\server;%APP_HOME%\lib\*;%APP_HOME%\target\dependency\*;%APP_HOME%\target\classes;
 
-java %JAVA_OPTS% -Dhornetq.spring.examples.home=%APP_HOME% -cp %CP% deng.hornetq.spring.examples.SpringContainer "%FILE_DIR%\%FILE%"
+java %JAVA_OPTS% -Dmq.home=%APP_HOME% -cp %CP% com.sitechasia.mq.bootstrap.SpringContainer "%FILE_DIR%\%FILE%"

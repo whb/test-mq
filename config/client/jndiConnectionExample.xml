@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 		   
-	<bean name="jndiConnectionExample" class="deng.hornetq.spring.examples.client.JndiConnectionExample" init-method="start" destroy-method="stop">
+	<bean name="jndiConnectionExample" class="com.sitechasia.mq.client.JndiConnectionExample" init-method="start" destroy-method="stop">
 	</bean>
 		   
 </beans>

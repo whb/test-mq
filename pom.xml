@@ -1,43 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>deng.hornetq.spring.examples</groupId>
-	<artifactId>hornetq-spring-examples</artifactId>
+	<groupId>com.sitechasia</groupId>
+	<artifactId>mq-test</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0</version>
-	<name>hornetq-spring-examples</name>
-		
-	<build>	
+	<name>mq-test</name>
+
+	<build>
 		<plugins>
-		
-			<!-- Enable this project to be JDK6 or higher. --> 
+
+			<!-- Enable this project to be JDK6 or higher. -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
-			</plugin>		
-			
+			</plugin>
+
 			<!-- Package plugin -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-        <version>2.2-beta-5</version>
-        <configuration>
-          <descriptorRefs>
-            <descriptorRef>src</descriptorRef>
-          </descriptorRefs>
-        </configuration>
-      </plugin>
-						
+				<version>2.2-beta-5</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>src</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
-	
-	<dependencies>		
-			
+
+	<dependencies>
+
 		<!-- User Application Lib -->
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -49,40 +48,40 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.14</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
-		
-		
+
+
 		<!-- HornetQ Embedded Server -->
-		<dependency>  
-		   <groupId>org.hornetq</groupId>  
-		   <artifactId>hornetq-core</artifactId>  
-		   <version>2.0.0.GA</version> 
-		</dependency> 
-		<dependency>  
-		   <groupId>org.hornetq</groupId>  
-		   <artifactId>hornetq-transports</artifactId>  
-		   <version>2.0.0.GA</version> 
-		</dependency> 
-		<dependency>  
-		   <groupId>org.hornetq</groupId>  
-		   <artifactId>hornetq-logging</artifactId>  
-		   <version>2.0.0.GA</version> 
-		</dependency>  
-		<dependency>  
-		   <groupId>org.hornetq</groupId>  
-		   <artifactId>hornetq-jms</artifactId>  
-		   <version>2.0.0.GA</version> 
-		</dependency>  
-		<dependency>  
-		   <groupId>org.jboss.netty</groupId>  
-		   <artifactId>netty</artifactId>  
-		   <version>3.1.5.GA</version>  
+		<dependency>
+			<groupId>org.hornetq</groupId>
+			<artifactId>hornetq-core</artifactId>
+			<version>2.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hornetq</groupId>
+			<artifactId>hornetq-transports</artifactId>
+			<version>2.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hornetq</groupId>
+			<artifactId>hornetq-logging</artifactId>
+			<version>2.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hornetq</groupId>
+			<artifactId>hornetq-jms</artifactId>
+			<version>2.0.0.GA</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.netty</groupId>
+			<artifactId>netty</artifactId>
+			<version>3.1.5.GA</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.naming</groupId>
@@ -94,7 +93,7 @@
 			<artifactId>jboss-jms-api</artifactId>
 			<version>1.1.0.GA</version>
 		</dependency>
-		
+
 		<!-- Spring dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -120,14 +119,14 @@
 	</dependencies>
 
 	<repositories>
-	
+
 		<!-- JBoss Repositories -->
 		<repository>
 			<id>jboss.release</id>
 			<name>JBoss releases</name>
 			<url>http://repository.jboss.org/maven2</url>
 		</repository>
-		
+
 		<!-- SpringFramework Repositories -->
 		<repository>
 			<id>com.springsource.repository.bundles.release</id>
@@ -136,5 +135,5 @@
 		</repository>
 
 	</repositories>
-	
+
 </project>

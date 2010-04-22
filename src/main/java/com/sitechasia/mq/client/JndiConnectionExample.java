@@ -1,4 +1,4 @@
-package deng.hornetq.spring.examples.client;
+package com.sitechasia.mq.client;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
