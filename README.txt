@@ -24,7 +24,7 @@ C:\mq-test> mvn dependency:copy-dependencies
 
 # Now you may start the server
 C:\mq-test> set JAVA_OPTS=-DwaitForShutdown=true
-C:\mq-test> bin\run-spring-container.bat config\server spring.xml
+C:\mq-test> bin\run-spring-container.bat config\server\hornetq spring.xml
 
 
 How to run the client examples
@@ -42,5 +42,5 @@ C:\mq-test> bin\run-spring-container.bat config\client jndiConnectionExample.xml
 C:\mq-test> bin\run-spring-container.bat config\client jmsTemplateExample.xml
 
 
-C:\mq-test> bin\run-spring-container.bat config\client jmsQueueSender.xml
-C:\mq-test> bin\run-spring-container.bat config\client jmsQueueReceiver.xml
+bin\run-spring-container.bat config\client jmsQueueSender.xml
+bin\run-spring-container.bat config\client jmsQueueReceiver.xml
