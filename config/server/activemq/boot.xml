@@ -4,7 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-	<bean name="jndiConnectionExample" class="com.sitechasia.mq.client.JndiConnectionExample"
-		init-method="start" destroy-method="stop" />
-
+	<bean id="broker" class="org.apache.activemq.xbean.BrokerFactoryBean">
+		<property name="config" value="classpath:activemq-throughput.xml" />
+		<property name="start" value="true" />
+	</bean>
 </beans>

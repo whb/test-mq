@@ -23,8 +23,9 @@ How to run the HornetQ Server
 C:\mq-test> mvn dependency:copy-dependencies
 
 # Now you may start the server
-C:\mq-test> set JAVA_OPTS=-DwaitForShutdown=true
-C:\mq-test> bin\run-spring-container.bat config\server\hornetq spring.xml
+set JAVA_OPTS=-DwaitForShutdown=true
+bin\run-spring-container.bat config\server\hornetq spring.xml
+bin\run-spring-container.bat config\server\activemq activemq-throughput.xml
 
 
 How to run the client examples
@@ -44,3 +45,13 @@ C:\mq-test> bin\run-spring-container.bat config\client jmsTemplateExample.xml
 
 bin\run-spring-container.bat config\client jmsQueueSender.xml
 bin\run-spring-container.bat config\client jmsQueueReceiver.xml
+
+bin\server.bat activemq
+bin\server.bat hornetq
+
+bin\client.bat activemq jmsQueueSender.xml
+bin\client.bat activemq jmsQueueReceiver.xml
+
+bin\client.bat hornetq jmsQueueSender.xml
+bin\client.bat hornetq jmsQueueReceiver.xml
+

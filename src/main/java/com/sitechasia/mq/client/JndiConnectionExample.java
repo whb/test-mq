@@ -20,7 +20,7 @@ public class JndiConnectionExample {
 		try {
 			log.info("Getting ConnectionFactory.");
 			context = new InitialContext();
-			ConnectionFactory cf = (ConnectionFactory)context.lookup("ConnectionFactory");
+			ConnectionFactory cf = (ConnectionFactory)context.lookup("connectionFactory");
 			connection = cf.createConnection();
 			
 			log.info("Got a connection : " + connection.getClass());

@@ -53,7 +53,7 @@ public class JmsQueueSender {
 			Date end = new Date();
 
 			long seconds = (end.getTime() - begin.getTime()) / 1000;
-			long countPersecond = count / seconds;
+			long countPersecond = count / (end.getTime() - begin.getTime()) * 1000;
 			log.info("====================================");
 			log.info("Sent " + count + " messages in : " + seconds
 					+ " seconds");

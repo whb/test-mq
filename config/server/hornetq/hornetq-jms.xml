@@ -7,8 +7,8 @@
          <connector-ref connector-name="netty"/>
 	   </connectors>
 		<entries>
-			<entry name="/ConnectionFactory"/>
-			<entry name="/XAConnectionFactory"/>
+			<entry name="connectionFactory"/>
+			<entry name="xaConnectionFactory"/>
 		</entries>
 	</connection-factory>
 	
@@ -20,43 +20,11 @@
 	</queue>   
 	
 	<queue name="ExampleQueue">
-		<entry name="/queue/ExampleQueue"/>
+		<entry name="exampleQueue"/>
 	</queue>
 	
 	<topic name="ExampleTopic">
-		<entry name="/topic/ExampleTopic"/>
+		<entry name="exampleTopic"/>
 	</topic>	
-	
-	<queue name="AQueue">
-		<entry name="/queue/AQueue"/>
-	</queue>
-	<queue name="BQueue">
-		<entry name="/queue/BQueue"/>
-	</queue>
-	<queue name="CQueue">
-		<entry name="/queue/CQueue"/>
-	</queue>
-	<queue name="DQueue">
-		<entry name="/queue/DQueue"/>
-	</queue>
-	<queue name="EQueue">
-		<entry name="/queue/EQueue"/>
-	</queue>
-	
-	<topic name="ATopic">
-		<entry name="/topic/ATopic"/>
-	</topic>
-	<topic name="BTopic">
-		<entry name="/topic/BTopic"/>
-	</topic>
-	<topic name="CTopic">
-		<entry name="/topic/CTopic"/>
-	</topic>
-	<topic name="DTopic">
-		<entry name="/topic/DTopic"/>
-	</topic>
-	<topic name="ETopic">
-		<entry name="/topic/ETopic"/>
-	</topic>
 	
 </configuration>
