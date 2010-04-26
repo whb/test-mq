@@ -9,7 +9,7 @@ if activemq==%1 (
 	set SERVER_OPTS=-Dactivemq.base=%APP_HOME%\target\activemq
 ) else (
 	set FILE_DIR=config\server\hornetq
-	set FILE=spring.xml
+	set FILE=boot.xml
 	set SERVER_OPTS=-Dhornetq.data.dir=%APP_HOME%\target\hornetq\data
 )
 
