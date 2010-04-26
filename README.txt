@@ -49,9 +49,11 @@ bin\run-spring-container.bat config\client jmsQueueReceiver.xml
 bin\server.bat activemq
 bin\server.bat hornetq
 
+bin\client.bat activemq jndiConnectionExample.xml
 bin\client.bat activemq jmsQueueSender.xml
 bin\client.bat activemq jmsQueueReceiver.xml
 
+bin\client.bat hornetq jndiConnectionExample.xml
 bin\client.bat hornetq jmsQueueSender.xml
 bin\client.bat hornetq jmsQueueReceiver.xml
 
