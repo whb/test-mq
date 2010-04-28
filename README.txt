@@ -25,8 +25,11 @@ How to run the MQ Server
 C:\mq-test> mvn dependency:copy-dependencies
 
 # Now you may start the server
-bin\server.bat activemq
-bin\server.bat hornetq
+bin\server.bat activemq default
+
+bin\server.bat hornetq async
+bin\server.bat hornetq no-persistence
+bin\server.bat hornetq default
 
 
 How to run the client examples

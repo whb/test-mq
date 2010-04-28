@@ -18,7 +18,7 @@ public class JmsQueueReceiver {
 
 	private ConnectionFactory connectionFactory;
 	private Destination destination;
-	private long count = 1000;
+	private long count = 10000;
 
 	public void setConnectionFactory(ConnectionFactory cf) {
 		this.connectionFactory = cf;
@@ -51,8 +51,8 @@ public class JmsQueueReceiver {
 			}
 			Date end = new Date();
 
-			long seconds = (end.getTime() - begin.getTime()) / 1000;
-			long countPersecond = count / (end.getTime() - begin.getTime()) * 1000;
+			double seconds = (double)(end.getTime() - begin.getTime()) / 1000;
+			double countPersecond = count / seconds;
 			log.info("====================================");
 			log.info("Receiver " + count + " messages in : " + seconds
 					+ " seconds");

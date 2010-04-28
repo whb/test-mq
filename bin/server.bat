@@ -1,14 +1,14 @@
 @echo off
-@rem Usage: server [activemq|hornetq]
+@rem Usage: server [activemq|hornetq] config_name
 
 if "%1"=="activemq" goto :MAIN
 if "%1"=="hornetq"  goto :MAIN
 
 :USAGE
 echo ====================================================
-echo Usage: %0 activemq 
+echo Usage: %0 activemq config_name
 echo        OR
-echo Usage: %0 hornetq
+echo Usage: %0 hornetq config_name
 echo =====================================================
 goto :EOF
 
@@ -20,7 +20,7 @@ if activemq==%1 (
 ) else (
 	set MQ_OPTS=-Dhornetq.data.dir=%APP_HOME%\target\hornetq\data
 )
-set FILE_DIR=config\server\%1
+set FILE_DIR=config\server\%1\%2
 set FILE=boot.xml
 set CP=%FILE_DIR%;%APP_HOME%\lib\*;%APP_HOME%\target\dependency\*;%APP_HOME%\target\classes;
 set JAVA_OPTS=-DwaitForShutdown=true
