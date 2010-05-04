@@ -18,7 +18,7 @@ public class JmsQueueReceiver {
 
 	private ConnectionFactory connectionFactory;
 	private Destination destination;
-	private long count = 10000;
+	private long count = Long.parseLong(System.getProperty("count", "10000"));
 
 	public void setConnectionFactory(ConnectionFactory cf) {
 		this.connectionFactory = cf;

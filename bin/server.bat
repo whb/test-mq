@@ -25,6 +25,7 @@ set FILE=boot.xml
 set CP=%FILE_DIR%;%APP_HOME%\lib\*;%APP_HOME%\target\dependency\*;%APP_HOME%\target\classes;
 set JAVA_OPTS=-DwaitForShutdown=true
 
-java %JAVA_OPTS% %MQ_OPTS% -cp %CP% com.sitechasia.mq.bootstrap.SpringContainer "%FILE_DIR%\%FILE%"
+set JVM_ARGS=-XX:+UseParallelGC  -XX:+AggressiveOpts -XX:+UseFastAccessorMethods -Xms512M -Xmx1024M
+java %JVM_ARGS% %JAVA_OPTS% %MQ_OPTS% -cp %CP% com.sitechasia.mq.bootstrap.SpringContainer "%FILE_DIR%\%FILE%"
 
 :EOF

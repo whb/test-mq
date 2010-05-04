@@ -39,6 +39,8 @@ How to run the client examples
 C:\mq-test> mvn dependency:copy-dependencies
 
 # Now you may start any example like this:
+set JAVA_OPTS=-Dcount=100000
+
 bin\client.bat activemq jndiConnectionExample.xml
 bin\client.bat activemq jmsQueueSender.xml
 bin\client.bat activemq jmsQueueReceiver.xml
