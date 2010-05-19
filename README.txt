@@ -48,4 +48,5 @@ bin\client.bat activemq jmsQueueReceiver.xml
 bin\client.bat hornetq jndiConnectionExample.xml
 bin\client.bat hornetq jmsQueueSender.xml
 bin\client.bat hornetq jmsQueueReceiver.xml
+bin\client.bat hornetq mapSender.xml
 
