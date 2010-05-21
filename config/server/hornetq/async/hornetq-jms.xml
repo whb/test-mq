@@ -25,6 +25,11 @@
 	
 	<topic name="ExampleTopic">
 		<entry name="exampleTopic"/>
-	</topic>	
+	</topic>
+
+	<queue name="MemoryQueue">
+		<entry name="memoryQueue"/>
+		<durable>false</durable>
+	</queue>	
 	
 </configuration>
