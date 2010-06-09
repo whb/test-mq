@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<bean id="transportConfiguration" class="org.hornetq.api.core.TransportConfiguration">
+		<constructor-arg value="org.hornetq.integration.transports.netty.NettyConnectorFactory" />
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.Object">
+				<entry key="host" value="211.157.98.86"></entry>
+				<entry key="port" value="8088"></entry>
+			</map>
+		</constructor-arg>
+  </bean>
+
+	<bean id="connectionFactory" class="org.hornetq.api.jms.HornetQJMSClient"
+      factory-method="createConnectionFactory">
+			<constructor-arg ref="transportConfiguration" />
+  </bean>
+	
+	<bean id="destination" class="org.hornetq.api.jms.HornetQJMSClient"
+      factory-method="createQueue">
+			<constructor-arg value="ExampleQueue" />
+  </bean>
+
+	<bean name="jmsQueueSender" class="com.sitechasia.mq.client.JmsQueueSender"
+		init-method="start" destroy-method="stop">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="destination" />
+	</bean>
+
+</beans>
