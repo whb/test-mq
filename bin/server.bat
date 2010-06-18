@@ -18,7 +18,7 @@ set APP_HOME=%~dp0..
 if activemq==%1 (
 	set MQ_OPTS=-Dactivemq.base=%APP_HOME%\target\activemq
 ) else (
-	set MQ_OPTS=-Dhornetq.data.dir=%APP_HOME%\target\hornetq\data
+	set MQ_OPTS=-Ddata.dir=%APP_HOME%\target\hornetq\data
 )
 set FILE_DIR=config\server\%1\%2
 set FILE=boot.xml
