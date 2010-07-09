@@ -30,6 +30,7 @@ bin\server.bat activemq default
 bin\server.bat hornetq async
 bin\server.bat hornetq no-persistence
 bin\server.bat hornetq default
+bin\server.bat hornetq no-durable-queue
 
 
 How to run the client examples
