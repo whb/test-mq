@@ -32,6 +32,7 @@
 	<queue name="ExampleQueue">
 		<entry name="/queue/ExampleQueue"/>
 		<entry name="/exampleQueue"/>
+		<durable>false</durable>
 	</queue>
 	<topic name="ExampleTopic">
 		<entry name="/topic/ExampleTopic"/>

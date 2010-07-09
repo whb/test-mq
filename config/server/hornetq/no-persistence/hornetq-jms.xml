@@ -7,8 +7,19 @@
          <connector-ref connector-name="netty"/>
 	   </connectors>
 		<entries>
-			<entry name="connectionFactory"/>
-			<entry name="xaConnectionFactory"/>
+			<entry name="/ConnectionFactory"/>
+			<entry name="/XAConnectionFactory"/>
+			<entry name="/connectionFactory"/>
+		</entries>
+	</connection-factory>
+	
+	<connection-factory name="NettyThroughputConnectionFactory">
+	   <connectors>
+         <connector-ref connector-name="netty-throughput"/>
+	   </connectors>
+		<entries>
+			<entry name="/ThroughputConnectionFactory"/>
+			<entry name="/XAThroughputConnectionFactory"/>
 		</entries>
 	</connection-factory>
 	
@@ -18,13 +29,13 @@
 	<queue name="ExpiryQueue">
 		<entry name="/queue/ExpiryQueue"/>
 	</queue>   
-	
 	<queue name="ExampleQueue">
-		<entry name="exampleQueue"/>
+		<entry name="/queue/ExampleQueue"/>
+		<entry name="/exampleQueue"/>
 	</queue>
-	
 	<topic name="ExampleTopic">
-		<entry name="exampleTopic"/>
-	</topic>	
+		<entry name="/topic/ExampleTopic"/>
+		<entry name="/exampleTopic"/>
+	</topic>
 	
 </configuration>

@@ -65,5 +65,6 @@
       </address-setting>
    </address-settings>
 
-	 <persistence-enabled>false</persistence-enabled>
+	 <journal-sync-transactional>false</journal-sync-transactional>
+	 <journal-sync-non-transactional>false</journal-sync-non-transactional>
 </configuration>

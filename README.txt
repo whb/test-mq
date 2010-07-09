@@ -51,3 +51,4 @@ bin\client.bat hornetq jmsQueueReceiver.xml
 bin\client.bat hornetq mapSender.xml
 bin\client.bat hornetq memoryQueueSender.xml
 bin\client.bat hornetq memoryQueueReceiver.xml
+bin\client.bat hornetq jmsNoPersistenceSender.xml
