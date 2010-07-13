@@ -17,7 +17,7 @@ APP_HOME=~/test-mq
 if [ "$1" = "activemq" ]; then
   MQ_OPTS="-Dactivemq.base=$APP_HOME/target/activemq -Dlogfile=$APP_HOME/target/activemq/data/activemq.log"
 else
-  MQ_OPTS="-Dhornetq.data.dir=$APP_HOME/target/hornetq/data -Dlogfile=$APP_HOME/target/hornetq/data/hornetq.log"
+  MQ_OPTS="-Ddata.dir=$APP_HOME/target/hornetq/data -Dlogfile=$APP_HOME/target/hornetq/data/hornetq.log"
 fi
 
 FILE_DIR=config/server/$1/$2
