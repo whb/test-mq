@@ -1,7 +1,5 @@
 package com.sitechasia.mq.client;
 
-import java.util.Date;
-
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -13,12 +11,12 @@ import javax.jms.TextMessage;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class JmsQueueSender {
-	private static Log log = LogFactory.getLog(JmsQueueSender.class);
+public class GroupMessageSender {
+	private static Log log = LogFactory.getLog(GroupMessageSender.class);
 
 	private ConnectionFactory connectionFactory;
 	private Destination destination;
-	private long count = Long.parseLong(System.getProperty("count", "10000"));
+	private long count = Long.parseLong(System.getProperty("count", "1000"));
 
 	public void setConnectionFactory(ConnectionFactory cf) {
 		this.connectionFactory = cf;
@@ -44,22 +42,25 @@ public class JmsQueueSender {
 			MessageProducer producer = session.createProducer(destination);
 
 			connection.start();
-			Date begin = new Date();
 			for (int i = 0; i < count; i++) {
-				TextMessage msg = session.createTextMessage("Message" + i);
+				TextMessage msg;
+				if (i >= 700 && i <= 750) {
+					msg = session.createTextMessage("Group" + i);
+					msg.setStringProperty("JMSXGroupID", "Group-700_750");
+				}
+				else if (i >= 800 && i <= 900) {
+					msg = session.createTextMessage("Group" + i);
+					msg.setStringProperty("JMSXGroupID", "Group-800_900");
+				}
+				else if (i >= 990 && i <= 995) {
+					msg = session.createTextMessage("Group" + i);
+					msg.setStringProperty("JMSXGroupID", "Group-990_995");
+				} else {
+					msg = session.createTextMessage("Message" + i);
+				}
 				producer.send(msg);
-        //log.trace("Sending msg: " + i);
+				// log.trace("Sending msg: " + i);
 			}
-			Date end = new Date();
-
-			double seconds = (double) (end.getTime() - begin.getTime()) / 1000;
-			double countPersecond = count / seconds;
-			log.info("====================================");
-			log
-					.info("Sent " + count + " messages in : " + seconds
-							+ " seconds");
-			log.info("messages/sec : " + countPersecond);
-			log.info("====================================");
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		} finally {

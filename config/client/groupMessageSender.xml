@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:property-placeholder location="classpath:jndi.properties" />
+
+	<bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate">
+		<property name="environment">
+			<props>
+				<prop key="java.naming.factory.initial">${java.naming.factory.initial}
+				</prop>
+				<prop key="java.naming.provider.url">${java.naming.provider.url}
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="connectionFactory" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate" ref="jndiTemplate" />
+		<property name="jndiName" value="connectionFactory" />
+	</bean>
+
+	<bean id="destination" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate" ref="jndiTemplate" />
+		<property name="jndiName" value="exampleQueue" />
+	</bean>
+
+	<bean name="jmsQueueSender" class="com.sitechasia.mq.client.GroupMessageSender"
+		init-method="start" destroy-method="stop">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="destination" />
+	</bean>
+
+</beans>

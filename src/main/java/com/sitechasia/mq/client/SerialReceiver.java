@@ -19,7 +19,7 @@ public class SerialReceiver {
 
 	private ConnectionFactory connectionFactory;
 	private Destination destination;
-	private long count = Long.parseLong(System.getProperty("count", "10000"));
+	private long count = Long.parseLong(System.getProperty("count", "1000"));
 	private long ms = Long.parseLong(System.getProperty("ms", "0"));
 
 	public void setConnectionFactory(ConnectionFactory cf) {
