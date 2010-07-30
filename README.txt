@@ -31,6 +31,7 @@ bin\server.bat hornetq async
 bin\server.bat hornetq no-persistence
 bin\server.bat hornetq default
 bin\server.bat hornetq no-durable-queue
+bin\server.bat hornetq no-consumer-buffer
 
 
 How to run the client examples
@@ -53,3 +54,4 @@ bin\client.bat hornetq mapSender.xml
 bin\client.bat hornetq memoryQueueSender.xml
 bin\client.bat hornetq memoryQueueReceiver.xml
 bin\client.bat hornetq jmsNoPersistenceSender.xml
+bin\client.bat hornetq serialReceiver.xml

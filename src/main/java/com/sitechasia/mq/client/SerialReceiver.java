@@ -1,5 +1,6 @@
 package com.sitechasia.mq.client;
 
+import java.lang.management.ManagementFactory;
 import java.util.Date;
 
 import javax.jms.Connection;
@@ -13,12 +14,13 @@ import javax.jms.TextMessage;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class JmsQueueReceiver {
-	private static Log log = LogFactory.getLog(JmsQueueReceiver.class);
+public class SerialReceiver {
+	private static Log log = LogFactory.getLog(SerialReceiver.class);
 
 	private ConnectionFactory connectionFactory;
 	private Destination destination;
 	private long count = Long.parseLong(System.getProperty("count", "10000"));
+	private long ms = Long.parseLong(System.getProperty("ms", "0"));
 
 	public void setConnectionFactory(ConnectionFactory cf) {
 		this.connectionFactory = cf;
@@ -36,18 +38,21 @@ public class JmsQueueReceiver {
 	private void sendMessage() {
 		Connection connection = null;
 		try {
+			String pName = ManagementFactory.getRuntimeMXBean().getName() ;
 			connection = connectionFactory.createConnection();
-			log.info(this + ":Got a connection : " + connection.getClass());
-			log.info(this + ":Got a destination : " + destination.getClass());
+			log.info(pName + ":Got a connection : " + connection.getClass());
+			log.info(pName + ":Got a destination : " + destination.getClass());
 			Session session = connection.createSession(false,
-					Session.AUTO_ACKNOWLEDGE);
+					Session.CLIENT_ACKNOWLEDGE);
 			MessageConsumer receiver = session.createConsumer(destination);
 
 			connection.start();
 			Date begin = new Date();
 			for (int i = 0; i < count; i++) {
 				TextMessage message = (TextMessage)receiver.receive();
-				log.trace(this + ": Receiving msg: " + message.getText());
+				log.trace(pName + ": Receiving msg: " + message.getText());
+				Thread.sleep(ms);
+				message.acknowledge();
 			}
 			Date end = new Date();
 
