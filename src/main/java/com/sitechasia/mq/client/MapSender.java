@@ -19,7 +19,8 @@ public class MapSender {
 
 	private ConnectionFactory connectionFactory;
 	private Destination destination;
-	private long count = Long.parseLong(System.getProperty("count", "10000"));
+	private long count = Long.parseLong(System.getProperty("count",
+			Constant.defaultCount));
 
 	public void setConnectionFactory(ConnectionFactory cf) {
 		this.connectionFactory = cf;

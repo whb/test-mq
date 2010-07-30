@@ -16,7 +16,8 @@ public class GroupMessageSender {
 
 	private ConnectionFactory connectionFactory;
 	private Destination destination;
-	private long count = Long.parseLong(System.getProperty("count", "1000"));
+	private long count = Long.parseLong(System.getProperty("count",
+			Constant.defaultCount));
 
 	public void setConnectionFactory(ConnectionFactory cf) {
 		this.connectionFactory = cf;
@@ -47,12 +48,10 @@ public class GroupMessageSender {
 				if (i >= 700 && i <= 750) {
 					msg = session.createTextMessage("Group" + i);
 					msg.setStringProperty("JMSXGroupID", "Group-700_750");
-				}
-				else if (i >= 800 && i <= 900) {
+				} else if (i >= 800 && i <= 900) {
 					msg = session.createTextMessage("Group" + i);
 					msg.setStringProperty("JMSXGroupID", "Group-800_900");
-				}
-				else if (i >= 990 && i <= 995) {
+				} else if (i >= 990 && i <= 995) {
 					msg = session.createTextMessage("Group" + i);
 					msg.setStringProperty("JMSXGroupID", "Group-990_995");
 				} else {

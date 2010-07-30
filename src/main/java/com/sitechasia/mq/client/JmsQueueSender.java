@@ -18,7 +18,8 @@ public class JmsQueueSender {
 
 	private ConnectionFactory connectionFactory;
 	private Destination destination;
-	private long count = Long.parseLong(System.getProperty("count", "10000"));
+	private long count = Long.parseLong(System.getProperty("count",
+			Constant.defaultCount));
 
 	public void setConnectionFactory(ConnectionFactory cf) {
 		this.connectionFactory = cf;
@@ -46,9 +47,14 @@ public class JmsQueueSender {
 			connection.start();
 			Date begin = new Date();
 			for (int i = 0; i < count; i++) {
-				TextMessage msg = session.createTextMessage("Message" + i);
+				TextMessage msg;
+				if (i == 8) {
+					msg = session.createTextMessage("throw" + i);
+				} else {
+					msg = session.createTextMessage("Message" + i);
+				}
 				producer.send(msg);
-        //log.trace("Sending msg: " + i);
+				// log.trace("Sending msg: " + i);
 			}
 			Date end = new Date();
 

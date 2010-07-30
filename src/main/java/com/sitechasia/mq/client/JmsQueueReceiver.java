@@ -18,7 +18,8 @@ public class JmsQueueReceiver {
 
 	private ConnectionFactory connectionFactory;
 	private Destination destination;
-	private long count = Long.parseLong(System.getProperty("count", "10000"));
+	private long count = Long.parseLong(System.getProperty("count",
+			Constant.defaultCount));
 
 	public void setConnectionFactory(ConnectionFactory cf) {
 		this.connectionFactory = cf;
@@ -46,12 +47,12 @@ public class JmsQueueReceiver {
 			connection.start();
 			Date begin = new Date();
 			for (int i = 0; i < count; i++) {
-				TextMessage message = (TextMessage)receiver.receive();
+				TextMessage message = (TextMessage) receiver.receive();
 				log.trace(this + ": Receiving msg: " + message.getText());
 			}
 			Date end = new Date();
 
-			double seconds = (double)(end.getTime() - begin.getTime()) / 1000;
+			double seconds = (double) (end.getTime() - begin.getTime()) / 1000;
 			double countPersecond = count / seconds;
 			log.info("====================================");
 			log.info("Receiver " + count + " messages in : " + seconds

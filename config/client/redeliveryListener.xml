@@ -27,10 +27,19 @@
 		<property name="jndiName" value="exampleQueue" />
 	</bean>
 
-	<bean name="serialReceiver" class="com.sitechasia.mq.client.SerialReceiver"
-		init-method="start" destroy-method="stop">
-		<property name="connectionFactory" ref="connectionFactory" />
-		<property name="destination" ref="destination" />
+	<bean id="redeliveryListener" class="com.sitechasia.mq.client.RedeliveryListener" />
+
+	<bean name="listenerRegister" class="com.sitechasia.mq.client.ListenerRegister"
+		destroy-method="close">
+		<constructor-arg index="0">
+			<ref bean="connectionFactory" />
+		</constructor-arg>
+		<constructor-arg index="1">
+			<ref bean="destination" />
+		</constructor-arg>
+		<constructor-arg index="2">
+			<ref bean="redeliveryListener" />
+		</constructor-arg>
 	</bean>
 
 </beans>

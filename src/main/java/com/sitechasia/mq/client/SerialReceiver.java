@@ -19,7 +19,8 @@ public class SerialReceiver {
 
 	private ConnectionFactory connectionFactory;
 	private Destination destination;
-	private long count = Long.parseLong(System.getProperty("count", "1000"));
+	private long count = Long.parseLong(System.getProperty("count",
+			Constant.defaultCount));
 	private long ms = Long.parseLong(System.getProperty("ms", "0"));
 
 	public void setConnectionFactory(ConnectionFactory cf) {
@@ -38,7 +39,7 @@ public class SerialReceiver {
 	private void sendMessage() {
 		Connection connection = null;
 		try {
-			String pName = ManagementFactory.getRuntimeMXBean().getName() ;
+			String pName = ManagementFactory.getRuntimeMXBean().getName();
 			connection = connectionFactory.createConnection();
 			log.info(pName + ":Got a connection : " + connection.getClass());
 			log.info(pName + ":Got a destination : " + destination.getClass());
@@ -49,14 +50,14 @@ public class SerialReceiver {
 			connection.start();
 			Date begin = new Date();
 			for (int i = 0; i < count; i++) {
-				TextMessage message = (TextMessage)receiver.receive();
+				TextMessage message = (TextMessage) receiver.receive();
 				log.trace(pName + ": Receiving msg: " + message.getText());
 				Thread.sleep(ms);
 				message.acknowledge();
 			}
 			Date end = new Date();
 
-			double seconds = (double)(end.getTime() - begin.getTime()) / 1000;
+			double seconds = (double) (end.getTime() - begin.getTime()) / 1000;
 			double countPersecond = count / seconds;
 			log.info("====================================");
 			log.info("Receiver " + count + " messages in : " + seconds

@@ -43,6 +43,7 @@ C:\mq-test> mvn dependency:copy-dependencies
 # Now you may start any example like this:
 set JAVA_OPTS=-Dcount=100000
 set JAVA_OPTS=-Dms=1000
+set JAVA_OPTS=-DwaitForShutdown=true
 
 bin\client.bat activemq jndiConnectionExample.xml
 bin\client.bat activemq jmsQueueSender.xml
@@ -57,3 +58,5 @@ bin\client.bat hornetq memoryQueueReceiver.xml
 bin\client.bat hornetq jmsNoPersistenceSender.xml
 bin\client.bat hornetq serialReceiver.xml
 bin\client.bat hornetq groupMessageSender.xml
+bin\client.bat hornetq serialReceiver.xml
+bin\client.bat hornetq redeliveryListener.xml
