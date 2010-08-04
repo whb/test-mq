@@ -1,0 +1,61 @@
+<configuration xmlns="urn:hornetq"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="urn:hornetq /schema/hornetq-configuration.xsd">
+
+   <paging-directory>master_data/paging</paging-directory>
+   
+   <bindings-directory>master_data/bindings</bindings-directory>
+   
+   <journal-directory>master_data/journal</journal-directory>
+   
+   <journal-min-files>2</journal-min-files>
+   
+   <large-messages-directory>master_data/large-messages</large-messages-directory>
+   
+	 
+	 <backup-connector-ref connector-name="backup-connector"/>
+   <connectors>
+      <connector name="netty">
+         <factory-class>org.hornetq.core.remoting.impl.netty.NettyConnectorFactory</factory-class>
+         <param key="host"  value="${hornetq.remoting.netty.host:localhost}"/>
+         <param key="port"  value="${hornetq.remoting.netty.port:5446}"/>
+      </connector>
+			<connector name="backup-connector">
+        <factory-class>org.hornetq.core.remoting.impl.netty.NettyConnectorFactory</factory-class>
+        <param key="port" value="5445"/>
+      </connector>
+   </connectors>
+
+   <acceptors>
+      <acceptor name="netty">
+         <factory-class>org.hornetq.core.remoting.impl.netty.NettyAcceptorFactory</factory-class>
+         <param key="host"  value="${hornetq.remoting.netty.host:localhost}"/>
+         <param key="port"  value="${hornetq.remoting.netty.port:5446}"/>
+      </acceptor>
+   </acceptors>
+
+   <security-settings>
+      <security-setting match="#">
+         <permission type="createNonDurableQueue" roles="guest"/>
+         <permission type="deleteNonDurableQueue" roles="guest"/>
+         <permission type="consume" roles="guest"/>
+         <permission type="send" roles="guest"/>
+      </security-setting>
+   </security-settings>
+
+   <address-settings>
+      <!--default for catch all-->
+      <address-setting match="#">
+         <dead-letter-address>jms.queue.DLQ</dead-letter-address>
+         <expiry-address>jms.queue.ExpiryQueue</expiry-address>
+         <redelivery-delay>0</redelivery-delay>
+         <max-size-bytes>104857600</max-size-bytes>    
+					<page-size-bytes>10485760</page-size-bytes>				 
+         <message-counter-history-day-limit>10</message-counter-history-day-limit>
+         <address-full-policy>PAGE</address-full-policy>
+      </address-setting>
+   </address-settings>
+	 
+	 <journal-sync-transactional>false</journal-sync-transactional>
+	 <journal-sync-non-transactional>false</journal-sync-non-transactional>
+</configuration>

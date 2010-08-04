@@ -33,6 +33,8 @@ bin\server.bat hornetq default
 bin\server.bat hornetq no-durable-queue
 bin\server.bat hornetq no-consumer-buffer
 bin\server.bat hornetq redelivery
+bin\server.bat hornetq master-slave\slave
+bin\server.bat hornetq master-slave\master
 
 How to run the client examples
 =============================
@@ -60,3 +62,4 @@ bin\client.bat hornetq serialReceiver.xml
 bin\client.bat hornetq groupMessageSender.xml
 bin\client.bat hornetq serialReceiver.xml
 bin\client.bat hornetq redeliveryListener.xml
+bin\client.bat hornetq failoverSender.xml
