@@ -32,7 +32,7 @@ bin\server.bat hornetq no-persistence
 bin\server.bat hornetq default
 bin\server.bat hornetq no-durable-queue
 bin\server.bat hornetq no-consumer-buffer
-
+bin\server.bat hornetq redelivery
 
 How to run the client examples
 =============================

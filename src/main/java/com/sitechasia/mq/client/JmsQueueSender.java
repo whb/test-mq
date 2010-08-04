@@ -48,7 +48,7 @@ public class JmsQueueSender {
 			Date begin = new Date();
 			for (int i = 0; i < count; i++) {
 				TextMessage msg;
-				if (i == 8) {
+				if (i == 6) {
 					msg = session.createTextMessage("throw" + i);
 				} else {
 					msg = session.createTextMessage("Message" + i);

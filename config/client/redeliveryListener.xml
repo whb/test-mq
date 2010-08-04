@@ -29,7 +29,7 @@
 
 	<bean id="redeliveryListener" class="com.sitechasia.mq.client.RedeliveryListener" />
 
-	<bean name="listenerRegister" class="com.sitechasia.mq.client.ListenerRegister"
+	<bean name="listenerRegister" class="com.sitechasia.mq.client.TransactionListenerRegister"
 		destroy-method="close">
 		<constructor-arg index="0">
 			<ref bean="connectionFactory" />
