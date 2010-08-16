@@ -51,7 +51,7 @@ public class JmsNoPersistenceSender {
 			for (int i = 0; i < count; i++) {
 				TextMessage msg = session.createTextMessage("Message" + i);
 				producer.send(msg);
-				log.trace("Sending msg: " + i);
+				//log.trace("Sending msg: " + i);
 			}
 			Date end = new Date();
 

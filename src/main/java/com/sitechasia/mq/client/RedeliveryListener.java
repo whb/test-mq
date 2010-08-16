@@ -12,8 +12,6 @@ import org.apache.commons.logging.LogFactory;
 
 public class RedeliveryListener implements MessageListener {
 	private static Log log = LogFactory.getLog(RedeliveryListener.class);
-	private long ms = Long.parseLong(System.getProperty("ms", "0"));
-
 	private Session session;
 
 	public void setSession(Session session) {
@@ -27,17 +25,18 @@ public class RedeliveryListener implements MessageListener {
 			try {
 				TextMessage textMessage = (TextMessage) message;
 
-				Thread.sleep(ms);
 				if (textMessage.getText().startsWith("throw")) {
 					log.trace(pName + ":***throw msg***: "
 							+ textMessage.getText());
+					Thread.sleep(500);
 					session.rollback();
 				} else {
 					log.trace(pName + ": Receiving msg: "
 							+ textMessage.getText());
+					Thread.sleep(500);
 					session.commit();
 				}
-				Thread.sleep(500);
+				
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
