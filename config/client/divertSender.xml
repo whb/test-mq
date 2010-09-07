@@ -24,10 +24,10 @@
 
 	<bean id="destination" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiTemplate" ref="jndiTemplate" />
-		<property name="jndiName" value="exampleQueue" />
+		<property name="jndiName" value="/queue/cic" />
 	</bean>
 
-	<bean name="jmsQueueReceiver" class="com.sitechasia.mq.client.JmsQueueReceiver"
+	<bean name="jmsQueueSender" class="com.sitechasia.mq.client.JmsQueueSender"
 		init-method="start" destroy-method="stop">
 		<property name="connectionFactory" ref="connectionFactory" />
 		<property name="destination" ref="destination" />
