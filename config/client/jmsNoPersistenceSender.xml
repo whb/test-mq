@@ -24,7 +24,7 @@
 
 	<bean id="destination" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiTemplate" ref="jndiTemplate" />
-		<property name="jndiName" value="exampleQueue" />
+		<property name="jndiName" value="${java.naming.test.queue}" />
 	</bean>
 
 	<bean name="jmsQueueSender" class="com.sitechasia.mq.client.JmsNoPersistenceSender"

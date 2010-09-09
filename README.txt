@@ -61,10 +61,10 @@ bin\client.bat hornetq memoryQueueReceiver.xml
 bin\client.bat hornetq jmsNoPersistenceSender.xml
 bin\client.bat hornetq serialReceiver.xml
 bin\client.bat hornetq groupMessageSender.xml
-bin\client.bat hornetq serialReceiver.xml
 bin\client.bat hornetq redeliveryListener.xml
 bin\client.bat hornetq failoverSender.xml
 bin\client.bat hornetq divertSender.xml
 bin\client.bat hornetq divertListener1.xml
 bin\client.bat hornetq divertListener2.xml
 bin\client.bat hornetq divertListener3.xml
+bin\client.bat hornetq failException.xml

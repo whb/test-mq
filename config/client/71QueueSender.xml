@@ -21,7 +21,7 @@
 	
 	<bean id="destination" class="org.hornetq.api.jms.HornetQJMSClient"
       factory-method="createQueue">
-			<constructor-arg value="ExampleQueue" />
+			<constructor-arg value="${java.naming.test.queue}" />
   </bean>
 
 	<bean name="jmsQueueSender" class="com.sitechasia.mq.client.JmsQueueSender"
