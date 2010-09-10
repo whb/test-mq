@@ -36,6 +36,7 @@ bin\server.bat hornetq redelivery
 bin\server.bat hornetq master-slave\slave
 bin\server.bat hornetq master-slave\master
 bin\server.bat hornetq divert
+bin\server.bat hornetq expire
 
 How to run the client examples
 =============================
@@ -68,3 +69,4 @@ bin\client.bat hornetq divertListener1.xml
 bin\client.bat hornetq divertListener2.xml
 bin\client.bat hornetq divertListener3.xml
 bin\client.bat hornetq failException.xml
+bin\client.bat hornetq expireSender.xml
