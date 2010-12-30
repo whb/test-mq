@@ -69,27 +69,27 @@
     <dependency>
       <groupId>org.hornetq</groupId>
       <artifactId>hornetq-core</artifactId>
-      <version>2.1.0.Final</version>
+      <version>2.1.2.Final</version>
     </dependency>
     <dependency>
       <groupId>org.hornetq</groupId>
       <artifactId>hornetq-logging</artifactId>
-      <version>2.1.0.Final</version>
+      <version>2.1.2.Final</version>
     </dependency>
     <dependency>
       <groupId>org.hornetq</groupId>
       <artifactId>hornetq-jms</artifactId>
-      <version>2.1.0.Final</version>
+      <version>2.1.2.Final</version>
     </dependency>
     <dependency>
       <groupId>org.jboss.netty</groupId>
       <artifactId>netty</artifactId>
-      <version>3.2.0.Final</version>
+      <version>3.2.2.Final</version>
     </dependency>
     <dependency>
       <groupId>org.jboss.naming</groupId>
       <artifactId>jnpserver</artifactId>
-      <version>5.0.3.GA</version>
+      <version>5.0.5.Final</version>
     </dependency>
     <dependency>
       <groupId>org.jboss.javaee</groupId>
