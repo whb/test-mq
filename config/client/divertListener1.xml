@@ -19,7 +19,7 @@
 
 	<bean id="connectionFactory" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiTemplate" ref="jndiTemplate" />
-		<property name="jndiName" value="connectionFactory" />
+		<property name="jndiName" value="${java.naming.connectionFactory}" />
 	</bean>
 
 	<bean id="destination" class="org.springframework.jndi.JndiObjectFactoryBean">
