@@ -71,3 +71,4 @@ bin\client.bat hornetq divertListener3.xml
 bin\client.bat hornetq failException.xml
 bin\client.bat hornetq expireSender.xml
 bin\client.bat hornetq sendTemp.xml
+bin\client.bat hornetq sessionSendTemp.xml
